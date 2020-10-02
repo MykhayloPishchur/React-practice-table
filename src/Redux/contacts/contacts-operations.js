@@ -11,7 +11,9 @@ const fetchContacts = () => (dispatch) => {
 
   axios
     .get(`?results=${randomIntegerInRange(0, 100)}`)
-    .then(({ data }) => dispatch(contactsActions.fetchContactsSuccess(data)))
+    .then(({ data }) =>
+      dispatch(contactsActions.fetchContactsSuccess(data.results))
+    )
     .catch((error) => dispatch(contactsActions.fetchContactsError(error)));
 };
 
