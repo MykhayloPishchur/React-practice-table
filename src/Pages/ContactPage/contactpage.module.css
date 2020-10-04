@@ -1,34 +1,3 @@
 .container {
-  width: 30%;
-  margin: auto;
-  overflow: hidden;
-}
-
-.wrapper {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: url("https://i.ibb.co/vBqnMkh/j-lee-wk8qqh7-Xwn-A-unsplash.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-@media (max-width: 1020px) {
-  .container {
-    width: 60%;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    width: 80%;
-  }
-}
-@media (max-width: 520px) {
-  .container {
-    width: 100%;
-  }
+  padding-top: 40px;
 }
