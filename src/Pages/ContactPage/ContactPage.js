@@ -4,6 +4,7 @@ import fetchContacts from "../../Redux/contacts/contacts-operations";
 import contactsSelectors from "../../Redux/contacts/contacts-selectors";
 import style from "./contactpage.module.css";
 import TableWiew from "../../Components/TableView";
+import CardView from "../../Components/CardView";
 import Pagination from "../../Components/Pagination";
 import PerPage from "../../Components/ContactPerPage";
 import Switch from "react-switch";
@@ -39,10 +40,9 @@ class contactWiew extends Component {
 
   componentDidMount() {
     const actualView = localStorage.getItem("tableView");
-    if (actualView) {
-      const view = actualView;
-      this.setState({ isTabular: view });
-    }
+    if (actualView === "false") {
+      this.setState({ isTabular: false });
+    } else this.setState({ isTabular: true });
     this.props.onFetchContacts();
   }
 
@@ -69,7 +69,11 @@ class contactWiew extends Component {
       <div className={style.container}>
         <PerPage onChange={this.handleChange} itemPerPage={itemPerPage} />
         <Switch onChange={this.handleChangeView} checked={isTabular} />
-        {isTabular ? <TableWiew users={currentPosts} /> : "Hello"}
+        {isTabular ? (
+          <TableWiew users={currentPosts} />
+        ) : (
+          <CardView items={currentPosts} />
+        )}
 
         <Pagination
           postsPerPage={postsPerPage}
