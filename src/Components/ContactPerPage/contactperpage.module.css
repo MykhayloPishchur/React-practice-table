@@ -1,0 +1,19 @@
+.selectContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.selectWrap {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  white-space: nowrap;
+  align-items: center;
+}
+.selectWrap > span {
+  font-weight: bold;
+  text-align: right;
+  margin-right: 7px;
+  margin-left: 7px;
+}

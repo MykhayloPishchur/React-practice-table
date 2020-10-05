@@ -5,19 +5,56 @@ import contactsSelectors from "../../Redux/contacts/contacts-selectors";
 import style from "./contactpage.module.css";
 import TableWiew from "../../Components/TableView";
 import Pagination from "../../Components/Pagination";
+import PerPage from "../../Components/ContactPerPage";
+import Switch from "react-switch";
+
+const itemPerPage = [5, 10, 20, "All"];
 
 class contactWiew extends Component {
   state = {
     currentPage: 1,
     postsPerPage: 5,
+    isTabular: true,
   };
 
+  handleChange = (event) => {
+    if (event.currentTarget.value === "All") {
+      this.setState({
+        postsPerPage: this.props.contacts.length,
+        currentPage: 1,
+      });
+    } else
+      this.setState({
+        postsPerPage: event.target.value,
+        currentPage: 1,
+      });
+  };
+
+  componentDidUpdate(prevState) {
+    const { isTabular } = this.state;
+    if (prevState.isTabular !== isTabular) {
+      localStorage.setItem("tableView", isTabular);
+    }
+  }
+
   componentDidMount() {
+    const actualView = localStorage.getItem("tableView");
+    if (actualView) {
+      const view = actualView;
+      this.setState({ isTabular: view });
+    }
     this.props.onFetchContacts();
   }
 
+  handleChangeView = () => {
+    const { isTabular } = this.state;
+    this.setState({
+      isTabular: !isTabular,
+    });
+  };
+
   render() {
-    const { currentPage, postsPerPage } = this.state;
+    const { currentPage, postsPerPage, isTabular } = this.state;
     const { contacts } = this.props;
 
     const indexOfLastPost = currentPage * postsPerPage;
@@ -30,18 +67,10 @@ class contactWiew extends Component {
 
     return (
       <div className={style.container}>
-        <div className={style.selectContainer}>
-          <div className={style.selectWrap}>
-            <span>Per page :</span>
-            <select className="custom-select">
-              <option selected>Open this select menu</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-          </div>
-        </div>
-        <TableWiew users={currentPosts}></TableWiew>
+        <PerPage onChange={this.handleChange} itemPerPage={itemPerPage} />
+        <Switch onChange={this.handleChangeView} checked={isTabular} />
+        {isTabular ? <TableWiew users={currentPosts} /> : "Hello"}
+
         <Pagination
           postsPerPage={postsPerPage}
           totalPosts={contacts.length}
