@@ -12,7 +12,7 @@ const AppBar = () => {
   ));
 
   return (
-    <Navbar collapseOnSelect bg="dark" variant="dark">
+    <Navbar bg="dark" className="container-fluid" variant="dark">
       <Navbar.Brand>MyWork</Navbar.Brand>
 
       <Nav className="mr-auto">{navlinks}</Nav>

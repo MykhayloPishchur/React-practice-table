@@ -15,7 +15,7 @@ class contactWiew extends Component {
   state = {
     currentPage: 1,
     postsPerPage: 5,
-    isTabular: true,
+    isTabular: false,
   };
 
   handleChange = (event) => {
@@ -67,8 +67,13 @@ class contactWiew extends Component {
 
     return (
       <div className={style.container}>
-        <PerPage onChange={this.handleChange} itemPerPage={itemPerPage} />
-        <Switch onChange={this.handleChangeView} checked={isTabular} />
+        <div className={style.selectContainer}>
+          <PerPage onChange={this.handleChange} itemPerPage={itemPerPage} />
+          <div className={style.switchContainer}>
+            <span>Table view :</span>
+            <Switch onChange={this.handleChangeView} checked={isTabular} />
+          </div>
+        </div>
         {isTabular ? (
           <TableWiew users={currentPosts} />
         ) : (

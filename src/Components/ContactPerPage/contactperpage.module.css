@@ -1,9 +1,3 @@
-.selectContainer {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 10px;
-}
-
 .selectWrap {
   display: flex;
   flex-direction: row;
