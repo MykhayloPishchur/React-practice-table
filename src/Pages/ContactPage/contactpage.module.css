@@ -1,10 +1,6 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   padding-top: 40px;
 }
-<<<<<<< HEAD
 .utilyWrapper {
   display: flex;
   justify-content: space-between;
@@ -12,19 +8,3 @@
   align-items: center;
   margin-bottom: 10px;
 }
-=======
-.selectContainer {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-.switchContainer {
-  display: flex;
-  align-items: center;
-}
-
-.switchContainer > span {
-  font-weight: bold;
-  margin-right: 10px;
-}
->>>>>>> c77dae2e9364eb2aa200e16746ecdcbba7af189e

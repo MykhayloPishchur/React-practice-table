@@ -1,12 +1,9 @@
-<<<<<<< HEAD
 .selectContainer {
   display: flex;
   justify-content: flex-end;
   /* transform: translateY(25px); */
 }
 
-=======
->>>>>>> c77dae2e9364eb2aa200e16746ecdcbba7af189e
 .selectWrap {
   display: flex;
   flex-direction: row;

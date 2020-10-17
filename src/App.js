@@ -10,12 +10,12 @@ const App = () => {
     <Route exact path={path} component={component} key={label} />
   ));
   return (
-    <div className="container-fluid m-0 p-0">
+    <>
       <Navbar></Navbar>
       <Suspense fallback={"Loading..."}>
         <Switch>{routeComponents}</Switch>
       </Suspense>
-    </div>
+    </>
   );
 };
 
