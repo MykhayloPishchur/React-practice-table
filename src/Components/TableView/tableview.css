@@ -1,0 +1,32 @@
+.sortContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.sorting {
+  background-image: url('https://i.ibb.co/wpW6hJC/sort-5-256.png');
+  background-size: cover;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border: none;
+  margin-right: 5px;
+}
+.sorting_desc {
+  background-image: url('https://i.ibb.co/5j5CGpV/sort-up-256.png');
+  background-size: cover;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border: none;
+  margin-right: 5px;
+}
+.sorting_asc {
+  background-image: url('https://i.ibb.co/pjPyd6H/sort-down-256.png');
+  background-size: cover;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border: none;
+  margin-right: 5px;
+}

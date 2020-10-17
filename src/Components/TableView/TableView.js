@@ -4,16 +4,27 @@ import formatedDateOfBirth from "../../Utils/formattedDOB";
 import fullName from "../../Utils/createFullName";
 import LocationInfo from "../../Utils/createLocation";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import "./tableview.css"
+
+
 
 const shortid = require("shortid");
 
-const TableWiew = ({ users }) => {
+
+const TableWiew = ({ users,currentSort,onSortChange,sortTypes }) => {
+
   return (
     <Table hover className="table table-bordered">
       <thead className="thead-dark text-center">
         <tr>
           <th>Avatar</th>
-          <th>Full Name</th>
+          <th >
+          <div className='sortContainer' >
+            <button className={`${sortTypes[currentSort].class}`}   onClick={onSortChange}></button>
+             <span>Full Name</span> 
+          </div>
+          </th>
+         
           <th>Birthday</th>
           <th>Email</th>
           <th>Phone</th>
