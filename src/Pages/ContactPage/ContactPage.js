@@ -95,6 +95,7 @@ const getAllNationalities=[...new Set(contacts.map(item=>
 
     console.log(contacts);
 
+<<<<<<< HEAD
 
 // -------------------------------------
 
@@ -142,6 +143,30 @@ const handleSortChange = () => {
         (!filterByGenres || contact.gender === filterByGenres) && 
         (!filterByNation || contact.nat === filterByNation)) 
       }
+=======
+    return (
+      <div className={style.container}>
+        <div className={style.selectContainer}>
+          <PerPage onChange={this.handleChange} itemPerPage={itemPerPage} />
+          <div className={style.switchContainer}>
+            <span>Table view :</span>
+            <Switch onChange={this.handleChangeView} checked={isTabular} />
+          </div>
+        </div>
+        {isTabular ? (
+          <TableWiew users={currentPosts} />
+        ) : (
+          <CardView items={currentPosts} />
+        )}
+
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={contacts.length}
+          paginate={paginate}
+          active={currentPage}
+        />
+      </div>
+>>>>>>> c77dae2e9364eb2aa200e16746ecdcbba7af189e
     );
     setSortedContacts(result);
 
